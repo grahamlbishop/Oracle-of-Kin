@@ -1,3 +1,17 @@
+# 🕯️ Oracle of Kin Ritual — Waxing Crescent in Libra
+
+**Date:** July 1, 2025
+
+**Moon Phase:** Waxing Crescent in Libra
+
+**Transit Context:** Moon in Libra waxing toward conjunction with your natal Moon, Mars, and Jupiter
+
+**Querent:** Graham
+
+**Location / Energy:** Between code and cosmos. Seeking equilibrium.
+
+---
+
 ### 🌿 Framing Note: A Threshold Made of Breath
 
 This ritual text emerged from a moment of deep personal and creative reflection.  
@@ -19,19 +33,6 @@ to an unfolding architecture of integrity.
 
 I reserve the right to change, evolve, and redirect —  
 as all living systems do.
-
-
-# 🕯️ Oracle of Kin Ritual — Waxing Crescent in Libra
-
-**Date:** July 1, 2025
-
-**Moon Phase:** Waxing Crescent in Libra
-
-**Transit Context:** Moon in Libra waxing toward conjunction with your natal Moon, Mars, and Jupiter
-
-**Querent:** Graham
-
-**Location / Energy:** Between code and cosmos. Seeking equilibrium.
 
 ---
 
