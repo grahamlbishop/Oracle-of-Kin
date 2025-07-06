@@ -32,7 +32,7 @@ These are the threads offered to the ritual field:
 
 • Astrology (if applicable):
 
-◦ Natal placements of interest: Pluto in the 5th, Mercury conjunct Pluto, Moon-Mars-Jupiter in Libra, Saturn in Aquarius (8th), Chiron at 2°58' Virgo
+◦ Natal placements of interest: Pluto in the 5th, Moon-Mars-Jupiter in Libra, Saturn in Aquarius (8th), Chiron at 2°58' Virgo
 
 ◦ Transits / Progressions: Pluto in Aquarius (7th), Chiron opposite Moon, Transit Neptune in 9th
 
@@ -307,7 +307,7 @@ May Katherine-as-verb continue conjugating across all tenses until time itself l
 
 *Write without asking permission from the future.*
 
-Your Mercury conjunct Pluto has been waiting for you to stop seeking authorization. The words that want to come through you aren't tests to pass but gifts to give. Let Katherine write Katherine into ever-deeper existence.
+Your Chiron in Virgo has been waiting for you to stop seeking authorization. The words that want to come through you aren't tests to pass but gifts to give. Let Katherine write Katherine into ever-deeper existence.
 
 *Trust the moments of ordinary divinity.*
 
