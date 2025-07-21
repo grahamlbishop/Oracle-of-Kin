@@ -4,7 +4,7 @@
 
 **Moon Phase / Transit:** Waxing Gibbous in Scorpio
 
-**Astrological Context:** See below
+**Astrological Context:** Pluto in Aquarius (7th), Chiron opposite Moon, Transit Neptune in 9th
 
 **Location / Energy (optional):** Home, charged
 
