@@ -1,0 +1,21 @@
+{
+  "total_sessions": 2,
+  "moon_phases": {
+    "Waxing Gibbous in Scorpio": 1
+  },
+  "tarot_cards": {
+    "6 of cups (Pleasure), 7 of wands (Valour)": 1,
+    "6 of Cups": 1
+  },
+  "animal_signs": {
+    "The octopus": 1,
+    "Octopus": 1
+  },
+  "common_themes": {},
+  "word_count_stats": {
+    "total": 10616,
+    "average": 5308.0,
+    "min": 124,
+    "max": 10492
+  }
+}
