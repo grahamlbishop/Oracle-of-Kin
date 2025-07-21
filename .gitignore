@@ -211,3 +211,13 @@ archive/
 *.pyc
 __pycache__/
 .DS_Store
+.vscode/
+.idea/
+
+# Local config
+config.json
+.env
+
+# OS files
+Thumbs.db
+*.swp
