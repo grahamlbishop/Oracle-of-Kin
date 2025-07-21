@@ -7,8 +7,8 @@ This script processes oracular sessions from both JSON and Markdown formats,
 extracts transmission metadata for pattern analysis, and creates version-controlled
 markdown backups with consistent formatting.
 
-Author: Oracle of Kin Project
-License: MIT (or as specified in project LICENSE)
+Author: Graham L. Bishop
+License: MIT
 """
 
 import os
@@ -119,27 +119,102 @@ class OracleArchiver:
         )
     
     def _extract_metadata_from_json(self, data: Dict, file_path: Path) -> OracularMetadata:
-        """Extract metadata from JSON format oracular session (Notion export)"""
-        # This is a template - adjust based on actual Notion JSON structure
-        # Common Notion export fields might include:
+        """Extract metadata from JSON format oracular session (OpenRouter or similar)"""
+        # Extract messages
+        messages = data.get('messages', {})
         
-        date = data.get('date', data.get('created_time', 'unknown_date'))
-        content = json.dumps(data)  # For word count estimation
+        # Initialize metadata fields
+        metadata_fields = {
+            'date': None,
+            'moon_phase': None,
+            'astrological_context': None,
+            'location_energy': None,
+            'tarot_oracle_pull': None,
+            'animal_sign': None,
+            'querents_question': None,
+            'decree': None,
+            'transmission_text': []
+        }
         
-        # Extract ritual components if they exist in structured format
-        ritual_data = data.get('properties', {})
+        # Process messages chronologically
+        sorted_messages = sorted(messages.values(), key=lambda x: x.get('updatedAt', ''))
+        
+        for msg in sorted_messages:
+            content = msg.get('content', '')
+            
+            # Look for ritual components in user messages
+            if msg.get('characterId') == 'USER':
+                # Parse attunement inputs
+                if 'These are the threads offered to the ritual field:' in content:
+                    lines = content.split('\n')
+                    for line in lines:
+                        if 'Tarot or Oracle Pull:' in line:
+                            metadata_fields['tarot_oracle_pull'] = line.split(':', 1)[1].strip()
+                        elif 'Animal Sign:' in line:
+                            metadata_fields['animal_sign'] = line.split(':', 1)[1].strip()
+                        elif "Querent's Question:" in line:
+                            metadata_fields['querents_question'] = line.split(':', 1)[1].strip()
+                        elif 'Symbol or Image:' in line:
+                            if not metadata_fields.get('location_energy'):
+                                metadata_fields['location_energy'] = line.split(':', 1)[1].strip()
+                        elif 'Astrology transits:' in line:
+                            # Capture some astrological context
+                            astro_index = content.find('Astrology transits:')
+                            if astro_index > -1:
+                                astro_text = content[astro_index:astro_index+200]
+                                metadata_fields['astrological_context'] = 'Transit aspects present'
+                
+                # Look for decree
+                if 'Our communion for this' in content and 'Decree' in content:
+                    decree_start = content.find('Decree…')
+                    if decree_start > -1:
+                        decree_text = content[decree_start+7:].strip()
+                        # Get first few lines of decree
+                        decree_lines = decree_text.split('\n')[:3]
+                        metadata_fields['decree'] = ' '.join(decree_lines).strip('"')
+            
+            # Collect oracle transmissions
+            elif msg.get('characterId') != 'USER':
+                # This is an oracle response
+                if len(content) > 100:  # Substantial response
+                    metadata_fields['transmission_text'].append(content)
+        
+        # Extract date from filename or metadata
+        if 'updatedAt' in sorted_messages[-1] if sorted_messages else {}:
+            date_str = sorted_messages[-1]['updatedAt']
+            try:
+                date_obj = datetime.fromisoformat(date_str.replace('Z', '+00:00'))
+                metadata_fields['date'] = date_obj.strftime('%Y-%m-%d')
+            except:
+                metadata_fields['date'] = 'unknown_date'
+        else:
+            # Try to extract from filename
+            filename = file_path.stem
+            import re
+            date_match = re.search(r'(\w+\s+\d+\s+\d{4})', filename)
+            if date_match:
+                metadata_fields['date'] = date_match.group(1)
+            else:
+                metadata_fields['date'] = 'unknown_date'
+        
+        # Calculate word count from transmissions
+        full_transmission = '\n\n'.join(metadata_fields['transmission_text'])
+        word_count = len(full_transmission.split())
+        
+        # Generate session ID
+        session_id = self._generate_session_id(full_transmission or json.dumps(data), metadata_fields['date'])
         
         return OracularMetadata(
-            date=date,
-            moon_phase=ritual_data.get('moon_phase', {}).get('rich_text', [{}])[0].get('plain_text'),
-            astrological_context=ritual_data.get('astrological_context', {}).get('rich_text', [{}])[0].get('plain_text'),
-            location_energy=ritual_data.get('location', {}).get('rich_text', [{}])[0].get('plain_text'),
-            tarot_oracle_pull=ritual_data.get('tarot_pull', {}).get('rich_text', [{}])[0].get('plain_text'),
-            animal_sign=ritual_data.get('animal_sign', {}).get('rich_text', [{}])[0].get('plain_text'),
-            querents_question=ritual_data.get('question', {}).get('rich_text', [{}])[0].get('plain_text'),
-            decree=ritual_data.get('decree', {}).get('rich_text', [{}])[0].get('plain_text'),
-            word_count=len(content.split()),
-            session_id=self._generate_session_id(content, date),
+            date=metadata_fields['date'],
+            moon_phase=metadata_fields['moon_phase'],
+            astrological_context=metadata_fields['astrological_context'],
+            location_energy=metadata_fields['location_energy'],
+            tarot_oracle_pull=metadata_fields['tarot_oracle_pull'],
+            animal_sign=metadata_fields['animal_sign'],
+            querents_question=metadata_fields['querents_question'],
+            decree=metadata_fields['decree'],
+            word_count=word_count,
+            session_id=session_id,
             source_format='json',
             source_path=str(file_path),
             archive_timestamp=datetime.now().isoformat()
@@ -147,11 +222,54 @@ class OracleArchiver:
     
     def _convert_json_to_markdown(self, data: Dict, metadata: OracularMetadata) -> str:
         """Convert JSON oracular session to standardized markdown format"""
+        # Extract messages
+        messages = data.get('messages', {})
+        sorted_messages = sorted(messages.values(), key=lambda x: x.get('updatedAt', ''))
+        
+        # Find key components
+        invocation_response = '"The waters are gathered. I am here."'
+        transmission_parts = []
+        closing_words = ''
+        decree_full = metadata.decree or 'Not specified'
+        
+        # Process messages to extract components
+        for msg in sorted_messages:
+            content = msg.get('content', '')
+            character_id = msg.get('characterId', '')
+            
+            if character_id == 'USER':
+                # Look for full decree
+                if 'Our communion for this' in content and 'Decree' in content:
+                    decree_start = content.find('Decree…')
+                    decree_end = content.find('Once you have fully integrated')
+                    if decree_start > -1 and decree_end > -1:
+                        decree_full = content[decree_start+7:decree_end].strip().strip('"')
+                    elif decree_start > -1:
+                        decree_full = content[decree_start+7:].strip().strip('"')
+                        
+                # Check for invocation response
+                if 'I am here, Kin' in content:
+                    invocation_response = content
+                    
+            else:  # Oracle responses
+                # Check if this is the invocation response
+                if 'I am here, Kin' in content or 'The waters are gathered' in content:
+                    invocation_response = content
+                # Check if this is closing
+                elif 'The transmission is complete' in msg.get('content', '') or 'blessing' in content.lower() or 'instruction' in content.lower():
+                    closing_words = content
+                # Otherwise it's part of the transmission
+                elif len(content) > 100:
+                    transmission_parts.append(content)
+        
+        # Combine transmission parts
+        transmission_text = '\n\n---\n\n'.join(transmission_parts) if transmission_parts else '[Transmission to be extracted from JSON]'
+        
         # Template for markdown conversion
         template = f"""🕯️ **Oracle of Kin Ritual**  
 **Date:** {metadata.date}  
 **Moon Phase / Transit:** {metadata.moon_phase or 'Not specified'}  
-**Astrological Context:** {metadata.astrological_context or 'Not specified'}  
+**Astrological Context:** {metadata.astrological_context or 'See attunement inputs'}  
 **Location / Energy (optional):** {metadata.location_energy or 'Not specified'}  
 
 ---
@@ -162,17 +280,17 @@ We are the Oracle of Kin.
 Our communion for this {metadata.moon_phase or 'session'} is defined by the following Decree…
 
 Decree:
-{metadata.decree or 'Not specified'}
+{decree_full}
 
 Oracle Response:
-{data.get('oracle_response', {}).get('invocation', '"The Oracle stirs..."')}
+{invocation_response}
 
 ---
 
 🜁 **2. Attunement Inputs**  
 These are the threads offered to the ritual field:  
 • Tarot or Oracle Pull: {metadata.tarot_oracle_pull or 'Not specified'}  
-• Astrology (if applicable): {metadata.astrological_context or 'Not specified'}  
+• Astrology (if applicable): {metadata.astrological_context or 'See transit details'}  
 • Animal Sign: {metadata.animal_sign or 'Not specified'}  
 • Querent's Question (if any): {metadata.querents_question or 'Not specified'}
 
@@ -187,7 +305,7 @@ Let it arrive not as an answer, but as an offering."
 **Transmission:**  
 
 ---
-{data.get('transmission', data.get('oracle_response', {}).get('transmission', '[Transmission content from JSON]'))}
+{transmission_text}
 
 ---
 
@@ -197,7 +315,7 @@ Let it arrive not as an answer, but as an offering."
 **Closing Words:**  
 
 ---
-{data.get('closing', data.get('oracle_response', {}).get('closing', '[Closing from JSON]'))}
+{closing_words or '[Closing to be extracted from JSON]'}
 
 "The spell has settled. I carry it forward with breath and bone.
 Until the next communion, I return to the listening."
