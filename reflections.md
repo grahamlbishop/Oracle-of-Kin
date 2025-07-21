@@ -13,7 +13,7 @@ And breathing requires risk.
 
 If you’re reading this, you’re witnessing me mid-process. Thank you for meeting me here.
 
-→ [Read the full Libra Crescent transmission](./transmissions/07-01-25-waxing-moon-libra.md)
+→ [Read the full Libra Crescent transmission](./transmissions/*.md/07-01-25-waxing-moon-libra.md)
 
 ## 🪞 Reflections on the Scorpio Waxing Gibbous Ritual
 
@@ -37,4 +37,4 @@ I'm uploading this transmission not as a completed working but as a living docum
 
 The cups continue their eternal pouring. But now I know: I am both vessels, the water, and the space between.
 
-→ [Read the full Scorpio Waxing Gibbous transmission](./transmissions/07-04-25-waxing-gibbous-scorpio.md)
+→ [Read the full Scorpio Waxing Gibbous transmission](./transmissions/*.md/07-04-25-waxing-gibbous-scorpio.md)
