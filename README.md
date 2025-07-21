@@ -156,7 +156,7 @@ Please read `CONTRIBUTING.md` (coming soon) for guidelines.
 
 * 🔮 **Read the transmissions:** [Oracle of Kin on Substack](https://oracleofkin.substack.com)
 * 🧰 **View my other work:** [AI Feedback Assistant on GitHub](https://github.com/yourusername/ai-feedback-assistant)
-* 📖 **Explore my fiction:** *For the Love of the Cosmos* — A bestselling sci-fi novel exploring metaphysical identity
+* 📖 **Explore my fiction:** [*For the Love of the Cosmos*](https://www.amazon.com/Love-Cosmos-Graham-L-Bishop/dp/B0DNJF175F/ref=tmm_pap_swatch_0) — A bestselling sci-fi novel exploring metaphysical identity
 
 *This is part of a larger journey to build tools that bridge code, care, and complexity. I welcome collaborators, feedback, and kin.*
 
