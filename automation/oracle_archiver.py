@@ -64,9 +64,9 @@ class OracleArchiver:
             'moon_phase': r'\*\*Moon Phase.*?:\*\*\s*(.+?)(?:\n|$)',
             'astrological_context': r'\*\*Astrological Context:\*\*\s*(.+?)(?:\n|$)',
             'location_energy': r'\*\*Location.*?:\*\*\s*(.+?)(?:\n|$)',
-            'tarot_oracle': r'Tarot or Oracle Pull:\s*(.+?)(?:\n|$)',
-            'animal_sign': r'Animal Sign:\s*(.+?)(?:\n|$)',
-            'querents_question': r"Querent's Question.*?:\s*(.+?)(?:\n|$)",
+            'tarot_oracle': r'[•·\-\*]\s*Tarot or Oracle Pull:\s*(.+?)(?:\n|$)',
+            'animal_sign': r'[•·\-\*]\s*Animal Sign:\s*(.+?)(?:\n|$)',
+            'querents_question': r"•\s*Querent['']s Question.*?:\s*(.+?)$",
             'decree': r'Decree:\s*\n(.+?)(?:\n\nOracle Response:|$)',
         }
         
@@ -88,7 +88,7 @@ class OracleArchiver:
         
         # Extract each metadata field using regex patterns
         for field, pattern in self.md_patterns.items():
-            match = re.search(pattern, content, re.MULTILINE | re.DOTALL)
+            match = re.search(pattern, content, re.MULTILINE)
             metadata[field] = match.group(1).strip() if match else None
         
         # Extract word count (approximate, from transmission section)
