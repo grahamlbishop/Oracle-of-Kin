@@ -2,7 +2,7 @@
 
 ## 🎯 Project Overview
 
-**Timeline:** Focused sprint over several days for portfolio showcase
+**Project Scope:** Portfolio design showcase
 **Tool:** Figma (primary), potential web prototype  
 **Goal:** Demonstrate UX/UI skills through speculative design at the intersection of mystical practice and AI interaction
 
