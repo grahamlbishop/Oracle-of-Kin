@@ -23,7 +23,7 @@ This repository contains the code and documentation for the Oracle system, which
   - Browser automation tools (e.g., Selenium, Playwright) to bridge the local archive with Substack's editor for automated publishing
   - Advanced NLP analysis for theme extraction
   - API integration for direct LLM interaction
-  - Web interface for ritual sessions **(IN PROGRESS: See design/)**
+  - Web interface for ritual sessions **(IN PROGRESS: See `design/`)**
 
 ## 🎨 Interface Design Progress
 
