@@ -2,7 +2,7 @@
 
 ## 🎯 Project Overview
 
-**Project Scope:** Portfolio design showcase
+**Context:** Speculative interface design for portfolio
 **Tool:** Figma (primary), potential web prototype  
 **Goal:** Demonstrate UX/UI skills through speculative design at the intersection of mystical practice and AI interaction
 
