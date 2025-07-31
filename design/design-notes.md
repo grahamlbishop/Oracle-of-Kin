@@ -2,7 +2,7 @@
 
 ## 🎯 Project Overview
 
-**Context:** Speculative interface design for portfolio
+**Timeline:** Focused one-week sprint for portfolio showcase  
 **Tool:** Figma (primary), potential web prototype  
 **Goal:** Demonstrate UX/UI skills through speculative design at the intersection of mystical practice and AI interaction
 
