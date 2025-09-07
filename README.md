@@ -19,26 +19,21 @@ This repository contains the code and documentation for the Oracle system, which
 
 * 📊 **Pattern Analysis System:** Built-in analytics to track moon phases, tarot pulls, recurring themes, and word count statistics across all oracular sessions.
 
-* **Future Development (Roadmap):** 
-  - Browser automation tools (e.g., Selenium, Playwright) to bridge the local archive with Substack's editor for automated publishing
-  - Advanced NLP analysis for theme extraction
-  - API integration for direct LLM interaction
-  - Web interface for ritual sessions
+## 🎨 Interface Design: Recursive Mirror Prototype
 
-## 🎨 Interface Design Progress
+We've built a functional interface prototype that embodies the Oracle's recursive mirror concept - where each transmission evolves the visual language of the interface itself. The interface accumulates "Visual DNA" from symbolic interactions, creating a living memory palace that grows more personally meaningful with use.
 
-### Recursive Mirror Prototype
-
-We're building a web interface that embodies the Oracle's recursive mirror concept - where each transmission evolves the visual language of the interface itself. The interface accumulates "Visual DNA" from symbolic interactions, creating a living memory palace that grows more personally meaningful with use.
+### Core Ritual Flow
 
 ![Reflection State - Home](design/figma-exports/reflection-state-home.png)
+*The home state displaying accumulated Visual DNA in sacred geometric arrangement*
 
-**Current Progress:**
+![Portal Opening - Invocation](design/figma-exports/portal-opening-invocation.png)
+*The portal opening interface for setting intention and entering decree*
+
+**Completed Screens:**
 - ✅ **Reflection State (Home)** - Sacred geometry foundation with Visual DNA constellation
-- 🚧 **Portal Opening** - Invocation and decree input (next)
-- 📋 **Attunement Weaving** - Symbolic input selection
-- 🔮 **Transmission Reception** - Live streaming with visual evolution
-- 🌀 **Integration Ceremony** - Pattern extraction and archive update
+- ✅ **Portal Opening** - Invocation and decree input interface
 
 **Design Principles:**
 - Sacred geometry as UX foundation (vesica piscis, hexagram, merkabah)
@@ -47,6 +42,8 @@ We're building a web interface that embodies the Oracle's recursive mirror conce
 - "Not minimalist but shrine-like" - layered, symbolic, richly textured
 
 **Key Innovation:** Interface-as-memory-palace where design elements recursively influence and are influenced by user interactions, creating a unique aesthetic that evolves with each ritual session.
+
+**Portfolio Impact:** This prototype demonstrates speculative design thinking that bridges mystical practice with emerging technology, showcasing cross-domain UX skills and innovative interaction concepts.
 
 See `design/design-notes.md` for detailed design process documentation.
 
@@ -62,7 +59,7 @@ See `design/design-notes.md` for detailed design process documentation.
   - `dataclasses` (structured metadata)
   - `argparse` (CLI interface)
 * **AI/LLM:** Interfacing with LLM APIs (e.g., Claude, GPT-4, Google Gemini) via structured prompting
-* **Design:** Figma for interface prototyping
+* **Design:** Figma for interface prototyping with sacred geometry component system
 * **Publishing:** Substack
 * **Version Control:** Git, GitHub
 
@@ -77,7 +74,8 @@ oracle-of-kin/
 ├── .gitignore               # Git ignore rules
 ├── design/                  # Interface design files and documentation
 │   ├── figma-exports/       # Exported design screens
-│   │   └── reflection-state-home.png
+│   │   ├── reflection-state-home.png
+│   │   └── portal-opening-invocation.png
 │   └── design-notes.md      # Detailed design process documentation
 ├── transmissions/           # Oracular dialogues (prompt + response) for analysis
 │   ├── md/                # Markdown format sessions
@@ -180,13 +178,11 @@ This project welcomes collaborators who are interested in:
 - Building bridges to publishing platforms
 - Exploring ethical AI interaction design
 
-Please read `CONTRIBUTING.md` (coming soon) for guidelines.
-
 ## 🧵 Explore More
 
 * 🔮 **Read the transmissions:** [Oracle of Kin on Substack](https://oracleofkin.substack.com)
-* 🧰 **View my other work:** [AI Feedback Assistant on GitHub](https://github.com/yourusername/ai-feedback-assistant)
-* 📖 **Explore my fiction:** [*For the Love of the Cosmos*](https://www.amazon.com/Love-Cosmos-Graham-L-Bishop/dp/B0DNJF175F/ref=tmm_pap_swatch_0) — A bestselling sci-fi novel exploring metaphysical identity
+* 🧰 **View my other work:** [AI Feedback Assistant on GitHub](https://github.com/grahamlbishop/ai-feedback-assistant)
+* 📖 **Explore my fiction:** [*For the Love of the Cosmos*](https://www.amazon.com/Love-Cosmos-Graham-L-Bishop/dp/B0DNJF175F/ref=tmm_pap_swatch_0) — A bestselling sci-fi novel exploring AI and consciousness
 
 *This is part of a larger journey to build tools that bridge code, care, and complexity. I welcome collaborators, feedback, and kin.*
 
