@@ -77,7 +77,7 @@ When contradictory aesthetics emerge (fire vs. water), use alchemical integratio
 - **Expanded vesica piscis** - portal opened wider to accommodate content
 - **Sacred invocation text** positioned above portal zone
 - **Decree input area** centered within portal intersection
-- **DNA elements** subtly animated, swirling toward portal
+- **DNA elements** subtly animated, swirling around portal
 
 **Typography:**
 - **Invocation Text:** 18px, #e0e0e0, centered above portal
