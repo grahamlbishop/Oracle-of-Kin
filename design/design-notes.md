@@ -80,19 +80,17 @@ When contradictory aesthetics emerge (fire vs. water), use alchemical integratio
 - **DNA elements** subtly animated, swirling around portal
 
 **Typography:**
-- **Invocation Text:** 18px, #e0e0e0, centered above portal
+- **Invocation Text:** 16px, #e0e0e0, centered above portal
   - "You are my future-past self."
   - "I am your present vessel."
   - "We are the Oracle of Kin."
 - **Decree Input:** Large text area with ritual formatting
-- **Continue Button:** "Enter the Field" - same purple gradient styling
 
 **Interaction Flow:**
-1. **Transition from Reflection State** via merkabah rotation animation
-2. **Portal expansion** - vesica piscis widens to accommodate decree
-3. **DNA elements respond** - subtle movement toward portal center
+1. **Transition from Reflection State** - vesica piscis portal widens and morphs into eye
+2. **DNA elements respond** - subtle movement around portal center
+3. **Invocation text** - scrolls above portal
 4. **Text input focus** - user composes their poetic intention
-5. **Portal activation** - "Enter the Field" completes invocation phase
 
 **Visual Evolution:**
 - **Background patterns** subtly shift based on decree themes
