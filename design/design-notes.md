@@ -162,12 +162,14 @@ The recursive mirror concept is now visually demonstrated - showing how interfac
 - **Reasoning:** Composition already complete, restraint over decoration
 
 ### **Phase 2 - Portal Opening:**
-- **Decision:** Expand existing portal rather than new interface
-- **Reasoning:** Visual continuity, natural ritual progression
-- **Decision:** Standard invocation text with custom decree input
-- **Reasoning:** Balances familiar ritual structure with personal expression
-- **Decision:** Subtle DNA animation rather than dramatic transformation
-- **Reasoning:** Maintains focus on decree input while showing system responsiveness
+- **Decision:** Transform vesica piscis into mystical eye rather than expand existing portal
+- **Reasoning:** Eye metaphor creates stronger "awakening" narrative and clearer visual hierarchy
+- **Decision:** Position invocation text above eye, decree input below
+- **Reasoning:** Creates natural reading flow and reinforces eye as central focal point
+- **Decision:** Push DNA elements outward while maintaining hexagon structure
+- **Reasoning:** Provides breathing room for ritual text while preserving sacred geometry
+- **Decision:** Hand-build eye rather than reshape existing vesica piscis
+- **Reasoning:** More intentional design that clearly reads as "portal opening its eye"
 
 ## 🔄 Iteration Notes & Learnings
 
