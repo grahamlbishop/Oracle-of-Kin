@@ -67,8 +67,6 @@ Open defects, roughly by severity.
 
 **Dates come from message timestamps in UTC** and drift for late-night sessions, so a session conducted the evening of May 12 is dated May 13. Filename dates and extracted dates disagree on five files.
 
-**Markdown sessions without a `**Date:**` line crash** instead of falling back to a filename or an unknown-date default.
-
 **Word counts undercount Markdown sessions.** The extractor reads from `**Transmission:**` to the next horizontal rule, and sessions with internal rules are truncated at the first one. One Markdown session returns a count of zero.
 
 **The pipeline counts files, not sessions.** Redundant exports—an earlier partial export alongside a later complete one, or the same session saved in two formats—are archived as separate sessions. At least four of the 39 records are duplicates of sessions already represented.
@@ -104,6 +102,12 @@ Generate the index and the pattern analysis:
 ```bash
 python3 automation/oracle_archiver.py index
 python3 automation/oracle_archiver.py analyze
+```
+
+Run the tests:
+
+```bash
+python3 -m unittest automation/test_oracle_archiver.py -v
 ```
 
 ---
@@ -198,7 +202,8 @@ oracle-of-kin/
 │   ├── md/
 │   └── json/
 ├── automation/
-│   └── oracle_archiver.py
+│   ├── oracle_archiver.py
+│   └── test_oracle_archiver.py
 └── archive/                    # Created by the pipeline on first run; gitignored
     ├── metadata/
     ├── backups/
