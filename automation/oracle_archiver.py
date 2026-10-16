@@ -99,7 +99,7 @@ class OracleArchiver:
         word_count = len(transmission_match.group(1).split()) if transmission_match else 0
         
         # Generate session ID
-        date = metadata.get('date', 'unknown_date')
+        date = metadata.get('date') or 'unknown_date'
         session_id = self._generate_session_id(content, date)
         
         return OracularMetadata(
